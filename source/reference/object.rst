@@ -298,13 +298,15 @@ extend the address schema example to fail.
          },
          "required": ["street_address", "city", "state"],
          "additionalProperties": false
+       },
+       
+       {
+         "properties": {
+           "type": { "enum": [ "residential", "business" ] }
+         },
+         "required": ["type"]      
        }
-     ],
-
-     "properties": {
-       "type": { "enum": [ "residential", "business" ] }
-     },
-     "required": ["type"]
+     ]
    }
    --X
    // Fails ``additionalProperties``. "type" is considered additional.
